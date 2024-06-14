@@ -28,7 +28,7 @@ export default function Products() {
                 toast.error('Product not added');
             }
         } else {
-            toast.info('Product removed from wishlist');
+            toast.info('login first');
         }
 
     }
@@ -47,7 +47,7 @@ export default function Products() {
             }
         }
         else {
-            toast.info('Product removed from wishlist');
+            toast.info('login first');
         }
 
     }

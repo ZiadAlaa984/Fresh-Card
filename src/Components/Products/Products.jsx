@@ -11,34 +11,45 @@ export default function Products() {
     console.log(withes);
 
     async function AddCard(productId) {
-        try {
-            const res = await addToCard(productId);
+        if (localStorage.getItem('tokinUser')) {
+            try {
+                const res = await addToCard(productId);
 
-            if (res.status === "success") {
-                setCount(prevCount => {
+                if (res.status === "success") {
+                    setCount(prevCount => {
 
-                    const newCount = prevCount + 1;
-                    localStorage.setItem('count', newCount);
-                    return newCount;
-                });
-                toast.success('Product added successfully');
+                        const newCount = prevCount + 1;
+                        localStorage.setItem('count', newCount);
+                        return newCount;
+                    });
+                    toast.success('Product added successfully');
+                }
+            } catch (error) {
+                toast.error('Product not added');
             }
-        } catch (error) {
-            toast.error('Product not added');
+        } else {
+            toast.info('Product removed from wishlist');
         }
+
     }
 
 
     function AddwithList(product, productId) {
-        if (isProductInWithes(productId)) {
-            const updatedWithes = withes.filter(item => item.id !== productId);
-            setWithes(updatedWithes);
-            localStorage.setItem('withes', JSON.stringify(withes))
-            toast.error('Product removed from wishlist');
-        } else {
-            setWithes(prevWithes => [...prevWithes, product]);
-            toast.success('Product added to wishlist');
+        if (localStorage.getItem('tokinUser')) {
+            if (isProductInWithes(productId)) {
+                const updatedWithes = withes.filter(item => item.id !== productId);
+                setWithes(updatedWithes);
+                localStorage.setItem('withes', JSON.stringify(withes))
+                toast.error('Product removed from wishlist');
+            } else {
+                setWithes(prevWithes => [...prevWithes, product]);
+                toast.success('Product added to wishlist');
+            }
         }
+        else {
+            toast.info('Product removed from wishlist');
+        }
+
     }
     function isProductInWithes(productId) {
         return withes.some(product => product.id === productId);

@@ -1,0 +1,10 @@
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #4CAF50;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .box:hover {
+            box-shadow: 10px 10px 20px rgba(36, 36, 36, 0.5);
+        }

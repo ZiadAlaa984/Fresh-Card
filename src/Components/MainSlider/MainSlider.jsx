@@ -17,8 +17,8 @@ export default function MainSlider() {
     };
     return (
         <div className='max-w-full  mx-auto'>
-            <div className='flex flex-row  '>
-                <div className='w-3/4'>
+            <div className='flex flex-row   '>
+                <div className='w-3/4 '>
                     <Slider {...settings}>
                         <img className='w-full object-cover max-h-[600px]' src={img1} alt="image1" />
                         <img className='w-full object-cover max-h-[600px]' src={img2} alt="image2" />

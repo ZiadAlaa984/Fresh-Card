@@ -49,18 +49,6 @@ const router = createBrowserRouter([
     ]
   }
 ]);
-// ! task ==> card 
-///? design
-///? cardContext,getCard,update,delete,localStorage
-// ! task ==> withes
-// ?design
-// ? onClick add product in array    
-// ? loop arrar == id.prodcut filter     
-// ! task ==> portofolio 
-// ^ Your Info
-// * design , dataApi , changePassword , dataApi
-// * loading
-// ^ last design 
 const queryClient = new QueryClient();
 
 function App() {

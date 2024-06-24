@@ -17,7 +17,6 @@ export default function Card() {
             setCardDetails(response);
             setTotal(response.data.totalCartPrice)
             setCount(response.data.products.length)
-            // console.log(response.data); // Add logging to debug
         } catch (error) {
             console.error("Error fetching card details:", error);
         }

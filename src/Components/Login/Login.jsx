@@ -45,7 +45,7 @@ export default function Login() {
 
     return (
         <>
-            <div className="shadow md:p-6 flex flex-col lg:flex-row justify-around gap-4 h-full w-full px-4 items-center">
+            <div className=" md:p-6 flex flex-col lg:flex-row justify-around gap-4 h-full w-full px-4 items-center">
                 <form onSubmit={formik.handleSubmit} className="lg:w-1/2 w-full pb-3 md:pb-0 order-2 lg:gap-1 h-full flex flex-col lg:px-4 mx-auto">
                     <h1 className='font-bold mb-3 text-[rgb(59,183,126)] text-center lg:text-5xl text-3xl'>Login Now :</h1>
 

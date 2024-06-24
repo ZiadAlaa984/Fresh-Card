@@ -7,11 +7,23 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Products() {
-    const { addToCard, setCount, withLength, setWithLength, productInWithes, addToWithList, withes, removewishlist } = useContext(CardContext);
+    const { addToCard, setCount, withLength, setWithLength, productInWithes, setproductInWithes, addToWithList, getWithList, removewishlist } = useContext(CardContext);
     const [productsInCart, setProductsInCart] = useState([]);
     const [productsWithGreenCartIcon, setProductsWithGreenCartIcon] = useState([]);
     const [productsInWishlist, setProductsInWishlist] = useState([]);
+    useEffect(() => {
+        async function fetchWishlist() {
+            try {
+                let response = await getWithList();
+                const productIds = response.data.map(product => product.id); // Extract product IDs
+                setproductInWithes(productIds); // Save product IDs in setproductInWithes
+            } catch (error) {
+                console.error("Error fetching wishlist details:", error);
+            }
+        }
 
+        fetchWishlist();
+    }, [getWithList, setWithLength, setproductInWithes]);
     useEffect(() => {
         async function fetchProductsInCart() {
             if (localStorage.getItem('tokinUser')) {

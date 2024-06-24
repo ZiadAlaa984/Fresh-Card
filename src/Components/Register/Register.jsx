@@ -27,7 +27,8 @@ export default function Register() {
             .then(function (x) {
                 console.log(x);
                 navigator('/');
-                setUser(x.data.user)
+                setUser(x.data.user);
+                localStorage.setItem('User', JSON.stringify(x.data.user))
                 setloading(false);
                 localStorage.setItem('tokinUser', x.data.token);
                 setToken(x.data.token);

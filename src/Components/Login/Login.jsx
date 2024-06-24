@@ -21,6 +21,7 @@ export default function Login() {
                 localStorage.setItem('tokinUser', x.data.token)
                 console.log(x);
                 setUser(x.data.user)
+                localStorage.setItem('User', JSON.stringify(x.data.user))
                 setToken(x.data.token)
                 navigator('/');
                 setloading(false);
